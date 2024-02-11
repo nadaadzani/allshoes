@@ -1,10 +1,10 @@
 "use client";
-
 import InfiniteScroll from "react-infinite-scroll-component";
 import Product from "./Product";
 import { ObjectId } from "mongodb";
 import { useEffect, useState } from "react";
 import { MyResponse } from "@/types/types";
+export const dynamic = "force-dynamic";
 
 type ProductModel = {
   _id: ObjectId;
