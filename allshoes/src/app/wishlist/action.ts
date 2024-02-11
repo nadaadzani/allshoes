@@ -1,5 +1,6 @@
 "use server";
 
+import { BASE_API_URL } from "@/db/utils/constants";
 import { ProductModel } from "@/types/types";
 import { ObjectId } from "mongodb";
 import { revalidatePath } from "next/cache";
@@ -16,7 +17,7 @@ type NewWishlistModel = {
 
 export async function handleDeleteWishlist(wishlist: NewWishlistModel) {
   try {
-    const response = await fetch("http://localhost:3000/api/wishlists", {
+    const response = await fetch(`${BASE_API_URL}/api/wishlists`, {
       method: "DELETE",
       body: JSON.stringify({
         productId: wishlist.wishlist._id,

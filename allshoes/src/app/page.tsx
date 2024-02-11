@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import { BASE_API_URL } from "@/db/utils/constants";
 import { MyResponse, ProductModel } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +8,13 @@ import Link from "next/link";
 import { IoIosCloudOutline } from "react-icons/io";
 
 export default async function Home() {
-  const response = await fetch(`http://localhost:3000/api/products`);
+  const response = await fetch(`${BASE_API_URL}/api/products`);
   const responseJson: MyResponse<ProductModel[]> = await response.json();
   const products = responseJson.data?.slice(0, 6);
+
+  if (!BASE_API_URL) {
+    return null;
+  }
 
   return (
     <>

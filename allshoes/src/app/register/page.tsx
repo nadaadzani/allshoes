@@ -1,3 +1,4 @@
+import { BASE_API_URL } from "@/db/utils/constants";
 import { redirect } from "next/navigation";
 
 const Page = () => {
@@ -11,7 +12,7 @@ const Page = () => {
       error?: string;
     };
 
-    const response = await fetch("http://localhost:3000/api/users", {
+    const response = await fetch(`${BASE_API_URL}/api/users`, {
       method: "POST",
       body: JSON.stringify({
         username: formData.get("username"),
@@ -30,6 +31,10 @@ const Page = () => {
     }
     return redirect("/login");
   };
+
+  if (!BASE_API_URL) {
+    return null;
+  }
 
   return (
     <>

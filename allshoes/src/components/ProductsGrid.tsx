@@ -4,6 +4,7 @@ import Product from "./Product";
 import { ObjectId } from "mongodb";
 import { useEffect, useState } from "react";
 import { MyResponse } from "@/types/types";
+import { BASE_API_URL } from "@/db/utils/constants";
 export const dynamic = "force-dynamic";
 
 type ProductModel = {
@@ -34,7 +35,7 @@ const ProductsGrid = ({ search }: { search: string }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:3000/api/products?name=${search}`
+        `${BASE_API_URL}/api/products?name=${search}`
       );
       const responseJson: MyResponse<ProductModel[]> = await response.json();
       setSearchedProducts(responseJson.data as ProductModel[]);
@@ -51,7 +52,7 @@ const ProductsGrid = ({ search }: { search: string }) => {
   async function fetchMoreData(offset: number) {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/products?name=${search}&offset=${offset}`
+        `${BASE_API_URL}/api/products?name=${search}&offset=${offset}`
       );
       const responseJson: MyResponse<ProductModel[]> = await response.json();
       const nextData = responseJson.data;

@@ -5,6 +5,7 @@ import { ProductModel, WishlistModel } from "@/types/types";
 import { cookies } from "next/headers";
 import Wishlist from "@/components/Wishlist";
 import { ObjectId } from "mongodb";
+import { BASE_API_URL } from "@/db/utils/constants";
 
 type NewWishlistModel = {
   _id: ObjectId;
@@ -16,7 +17,7 @@ type NewWishlistModel = {
 };
 
 const Page = async () => {
-  const response = await fetch("http://localhost:3000/api/wishlists", {
+  const response = await fetch(`${BASE_API_URL}/api/wishlists`, {
     method: "GET",
     headers: {
       Cookie: cookies().toString(),
@@ -25,6 +26,9 @@ const Page = async () => {
   const responseJson = await response.json();
   const wishlists: NewWishlistModel[] = responseJson.data;
   // console.log(responseJson.data);
+  if (!BASE_API_URL) {
+    return null;
+  }
 
   return (
     <>

@@ -1,9 +1,10 @@
 "use server";
 
+import { BASE_API_URL } from "@/db/utils/constants";
 import { ProductModel } from "@/types/types";
 
 export async function fetchProducts() {
-  const response = await fetch("http://localhost:3000/api/products", {
+  const response = await fetch(`${BASE_API_URL}/api/products`, {
     method: "GET",
     cache: "no-store",
     headers: {

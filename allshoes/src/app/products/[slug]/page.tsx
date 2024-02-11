@@ -1,11 +1,10 @@
 import AddWishlistButton from "@/components/AddWishlistButton";
+import { BASE_API_URL } from "@/db/utils/constants";
 import { rupiah } from "@/db/utils/rupiah";
 import { MyResponse, ProductModel } from "@/types/types";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
-  const response = await fetch(
-    `http://localhost:3000/api/products/${params.slug}`
-  );
+  const response = await fetch(`${BASE_API_URL}/api/products/${params.slug}`);
   const responseJson: MyResponse<ProductModel> = await response.json();
   const slugProduct = responseJson.data as ProductModel;
 

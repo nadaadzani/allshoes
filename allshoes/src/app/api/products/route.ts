@@ -2,6 +2,7 @@ import { getProducts, getProductsByNameSearch } from "@/db/models/product";
 import { MyResponse } from "@/types/types";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+export const dynamic = "force-dynamic";
 
 const productModelSchema = z.object({
   name: z.string(),

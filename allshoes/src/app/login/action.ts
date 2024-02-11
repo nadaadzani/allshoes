@@ -1,6 +1,7 @@
 "use server";
 
 import { getUserByEmail } from "@/db/models/user";
+import { BASE_API_URL } from "@/db/utils/constants";
 import { comparePass } from "@/db/utils/hash";
 import { signToken } from "@/db/utils/token";
 import { cookies } from "next/headers";
@@ -28,13 +29,13 @@ export const doLogin = async (formData: FormData) => {
     const errFinalMessage = `${errPath} - ${errMessage}`;
 
     // Mengembalikan error via redirect
-    return redirect(`http://localhost:3000/login?error=${errFinalMessage}`);
+    return redirect(`${BASE_API_URL}/login?error=${errFinalMessage}`);
   }
 
   const user = await getUserByEmail(parsedData.data.email);
 
   if (!user || !comparePass(parsedData.data.password, user.password)) {
-    return redirect(`http://localhost:3000/login?error=Invalid%20credentials`);
+    return redirect(`${BASE_API_URL}/login?error=Invalid%20credentials`);
   }
 
   const payload = {
