@@ -21,8 +21,10 @@ export default async function Home() {
           />
           <div className="absolute top-[30%] left-0 right-0 bg-white w-[12rem] py-8 pr-8">
             <p className="font-semibold tracking-widest text-xl">Featured</p>
-            <p className="mt-8 mb-2 tracking-wide font-[500]">Men's shoes</p>
-            <p className="mb-2 tracking-wide font-[500]">Women's shoes</p>
+            <p className="mt-8 mb-2 tracking-wide font-[500]">
+              Men&apos;s shoes
+            </p>
+            <p className="mb-2 tracking-wide font-[500]">Women&apos;s shoes</p>
             <p className="mb-2 tracking-wide font-[500]">New arrivals</p>
           </div>
           <div className="absolute right-0 bottom-[15%] text-right pr-4">

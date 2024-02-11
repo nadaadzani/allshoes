@@ -26,7 +26,7 @@ const Page = () => {
                 Sign in
               </button>
               <p>
-                Haven't registered?{" "}
+                Haven&apos;t registered?{" "}
                 <Link href={"/register"} className="hover:underline">
                   Sign up.
                 </Link>

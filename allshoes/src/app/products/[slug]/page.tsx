@@ -14,12 +14,13 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       <summary className="pt-36 min-h-[115vh] w-full bg-gray-300 flex pb-16">
         <div className="flex ml-24 gap-4 w-3/5 h-[36rem]">
           <div className="flex flex-col gap-3">
-            {slugProduct.images.map((image) => {
+            {slugProduct.images.map((image, index) => {
               return (
                 <img
                   src={image}
                   alt=""
                   className="h-[6.6rem] w-full object-cover"
+                  key={index}
                 ></img>
               );
             })}
