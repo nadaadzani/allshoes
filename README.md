@@ -1,5 +1,5 @@
 # Allshoes
-AllShoes is a web-based e-commerce application that allows users to browse and purchase a wide variety of shoes online. With AllShoes, users can explore different shoe categories, view product details, add items to wishlist.
+Allshoes is a web-based e-commerce application that allows users to browse and purchase a wide variety of shoes online. With Allshoes, users can explore different shoe categories, view product details, add items to wishlist.
 
 # Features
 - Browse Shoes: Explore a vast collection of shoes categorized by type, brand, gender, and more.
